@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+  <h1>Контакты</h1>
+  <div class="contact-wrapper">
+    <div class="contact-card">
+      <h2>Адрес</h2>
+      <p>ул. Примерная, 123</p>
+    </div>
+    <div class="contact-card">
+      <h2>Телефон</h2>
+      <p>+380 97 98 97 223</p>
+    </div>
+    <div class="contact-card">
+      <h2>Электронная почта</h2>
+      <p>info@myshop.com</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}

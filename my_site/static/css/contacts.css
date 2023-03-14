@@ -1,0 +1,25 @@
+.container {
+  text-align: center;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.contact-card {
+  flex: 1;
+}
+
+.contact-card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-card p {
+  margin-bottom: 40px;
+}

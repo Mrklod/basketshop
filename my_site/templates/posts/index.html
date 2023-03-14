@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-image">
+        <img src="{% static 'img/2.jfif' %}" alt="Hero Image" width="80%">
+    </div>
+    <div class="hero-text">
+        <h1>BasketShop-это место где есть все, что нужно баскетболисту</h1>
+        <p>Не проходите мимо, у нас всегда есть из чего выбрать. Акции, новинки и лучшие цены!<br />
+        Тут вы можете выбрать подарок баскетболисту!</p>
+        <button class="hero-button">Learn More</button>
+    </div>
+</div>
+<div class="features-section">
+    <div class="feature">
+        <img src="{% static 'img/3.jfif' %}" alt="Feature 1">
+        <h2>Кросовки</h2>
+        <p>Все виды, модели и бренды кроссовок.</p>
+    </div>
+    <div class="feature">
+        <img src="{% static 'img/4.jfif' %}" alt="Feature 2">
+        <h2>Мячи</h2>
+        <p>Мячи на любой вкус и цвет.</p>
+    </div>
+    <div class="feature">
+        <img src="{% static 'img/5.jfif' %}" alt="Feature 3">
+        <h2>Носки</h2>
+        <p>Самые удобные и качественные носки, по приятным ценам!</p>
+    </div>
+</div>
+{% endblock content %}

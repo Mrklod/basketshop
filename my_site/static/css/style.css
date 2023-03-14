@@ -1,0 +1,129 @@
+/* General styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 10px 0;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.navbar-links a {
+  margin-right: 20px;
+}
+
+/* Hero section styles */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-text {
+  flex: 1;
+  padding-left: 50px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  margin-bottom: 40px;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #555;
+}
+
+/* Features section styles */
+.features-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.feature {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.feature h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.feature p {
+  margin-bottom: 40px;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  margin-top: 80px;
+}
+
+.footer-links a {
+  margin-right: 20px;
+}
+
+.footer-text {
+  text-align: center;
+}

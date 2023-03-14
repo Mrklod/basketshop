@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Page</title>
+  {% block style %}
+  {% endblock style %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="{% static 'img/1.jfif' %}" alt="Logo">
+    </div>
+    <div class="navbar-links">
+      <a href="{% url 'index' %}">Главная</a>
+      <a href="{% url 'contact' %}">Контакты</a>
+      <a href="{% url 'about' %}">О нас</a>
+      <a href="#">Регистрация</a>
+      <a href="#">Авторизация</a>
+      <a href="#">Каталог</a>
+      <a href="{% url 'profile' %}">Профиль</a>
+      <a href="#">Выйти</a>
+    </div>
+  </nav>
+{% block content %}
+{% endblock content %}
+</body>
+</html>

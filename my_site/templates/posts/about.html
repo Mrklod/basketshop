@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock style %}
+
+{% block content %}
+<section class="about-section">
+    <div class="container">
+        <h1>О нас</h1>
+        <p>Мы - команда профессионалов в области продажи товаров для баскетбола. Наша цель - предоставить клиентам
+            лучшие товары и услуги.</p>
+        <div class="about-team">
+            <div class="team-member">
+                <img src="{% static 'img/6.jfif' %}" alt="Team member">
+                <h3>Осин Александр</h3>
+                <p>Директор</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'img/7.jfif' %}" alt="Team member">
+                <h3>Осин Александр</h3>
+                <p>Создатель</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'img/8.jfif' %}" alt="Team member">
+                <h3>Осин Александр</h3>
+                <p>Разработчик</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
