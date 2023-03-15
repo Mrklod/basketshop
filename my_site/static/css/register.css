@@ -1,0 +1,28 @@
+.registration-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+    }
+    .forms{
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 2px solid #ccc;
+    }
+    .forms{
+      outline: none;
+      border-color: #333;
+    }
+    button[type="submit"] {
+      margin-top: 20px;
+    }
