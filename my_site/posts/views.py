@@ -48,6 +48,9 @@ def login(request):
     context = {'title':'Авторизация','form':form}
     return render(request,'login.html',context=context)
 
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 def likes(request,pk):
     post = get_object_or_404(Products,pk=pk)
