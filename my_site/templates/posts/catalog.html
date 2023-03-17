@@ -28,10 +28,11 @@
     <div class="products">
         {% for k in product %}
         <div class="product">
-            <img src="{{ k.photo.url }}" alt="Product 1">
+            <img src="{{ k.photo.url }}" alt="Product 1" width="70%">
             <h4>{{ k.name }}</h4>
             <p>${{ k.price }} Количество:{{ k.count }}</p>
             <p>Категория:{{ k.cat }}  Бренд:{{ k.brend }}</p>
+            <a href="{% url 'about' %}"><button class="hero-button">Подробнее</button></a>
         </div>
         {% endfor %}
     </div>

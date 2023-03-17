@@ -9,9 +9,15 @@
 <div class="container">
     <h1>Личный профиль</h1>
     <div class="profile-info">
+        {% if user.photo %}
+        <img src="{{ user.photo.url }}" alt="Product 1">
+        {% else %}
         <img src="{% static 'img/8.jfif' %}" alt="Profile Picture">
+        {% endif %}
         <div class="profile-details">
             <h2>{{ user.username }}</h2>
+            <p>Mail:{{ user.email }}</p>
+            <p>Phone:{{ user.phone }}</p>
         </div>
     </div>
 </div>
