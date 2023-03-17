@@ -20,9 +20,10 @@ class Products(models.Model):
     price = models.PositiveIntegerField(default=0)
     count = models.PositiveIntegerField(default=0)
     cat = models.ForeignKey(Category,on_delete=models.CASCADE)
-    brend = models.ForeignKey(Brend,on_delete=models.CASCADE)
-    likes = models.ManyToManyField(Users, related_name='post_likes')
-    dislikes = models.ManyToManyField(Users, related_name='post_dislikes')
+    brend = models.ForeignKey(Brend,on_delete=models.CASCADE,)
+    likes = models.ManyToManyField(Users, related_name='post_likes',blank=True)
+    dislikes = models.ManyToManyField(Users, related_name='post_dislikes',blank=True)
+    photo = models.ImageField(upload_to='img')
 
     def __str__(self):
         return self.name

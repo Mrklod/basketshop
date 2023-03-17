@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404,HttpResponseRedirect
 from django.urls import reverse
 
-from .models import Products
+from .models import *
 from django.contrib import auth
 from .forms import UserLoginForm,UserRegisterForm
 # Create your views here.
@@ -51,6 +51,17 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+def catalog(request):
+    brend = Brend.objects.all()
+    cat = Category.objects.all()
+    product = Products.objects.all()
+    context = {'title':'Каталог',
+               'brend':brend,
+               'cat':cat,
+               'product':product,
+               }
+    return render(request,'posts/catalog.html',context=context)
 
 def likes(request,pk):
     post = get_object_or_404(Products,pk=pk)

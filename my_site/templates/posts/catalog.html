@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <div class="sidebar">
+        <h3>Filter by:</h3>
+        <form>
+            <label for="brand">Brand:</label>
+            <select id="brand" name="brand">
+                {% for i in brend %}
+                <option value="">{{ i.brend }}</option>
+                {% endfor %}
+            </select>
+            <label for="price">Category:</label>
+            <select id="price" name="price">
+                {% for d in cat %}
+                <option value="">{{ d.category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+    </div>
+    <div class="products">
+        {% for k in product %}
+        <div class="product">
+            <img src="{{ k.photo.url }}" alt="Product 1">
+            <h4>{{ k.name }}</h4>
+            <p>${{ k.price }} Количество:{{ k.count }}</p>
+            <p>Категория:{{ k.cat }}  Бренд:{{ k.brend }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <!-- More pages here -->
+        </ul>
+    </div>
+
+</div>
+
+{% endblock content %}
