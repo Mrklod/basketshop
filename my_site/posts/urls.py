@@ -9,5 +9,6 @@ urlpatterns = [
     path('register/',register,name='register'),
     path('login/',login,name='login'),
     path('logout/',logout,name='logout'),
-    path('catalog/',catalog,name='catalog')
+    path('catalog/',catalog,name='catalog'),
+    path('product/<int:post_id>/',single_post,name='single'),
 ]

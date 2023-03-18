@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/single.css' %}">
+{% endblock style %}
+
+{% block content %}
+{% for k in post %}
+<div class="product">
+    <img src="{{ k.photo.url }}" alt="Product 1" width="50%">
+    <h2>{{ k.name }}</h2>
+    <p>${{ k.price }} Количество:{{ k.count }}</p>
+    <p>Категория:{{ k.cat }} Бренд:{{ k.brend }}</p>
+    <p>{{ k.text }}</p>
+    <a href="#"><button class="hero-button">Купить</button></a>
+</div>
+{% endfor %}
+{% endblock content %}

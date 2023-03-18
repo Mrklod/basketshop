@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from .models import *
 from django.contrib import auth
-from .forms import UserLoginForm,UserRegisterForm
+from .forms import UserLoginForm,UserRegisterForm,ImageProfileForm
 # Create your views here.
 def index(request):
     context = {'title':'Главная страница'}
@@ -18,7 +18,16 @@ def about(request):
     return render(request,'posts/about.html',context=context)
 
 def profile(request):
-    context = {'title':'Личный профиль'}
+    prof = request.user
+    if request.method == 'POST':
+        form = ImageProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            # prof.photo = request.FILES
+            # prof.save(comit)
+            return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = ImageProfileForm()
+    context = {'title':'Личный профиль','form':form}
     return render(request,'posts/profile.html',context=context)
 
 
@@ -62,6 +71,11 @@ def catalog(request):
                'product':product,
                }
     return render(request,'posts/catalog.html',context=context)
+
+def single_post(request,post_id):
+    post = Products.objects.filter(pk=post_id)
+    context = {'title':'Товар','post':post}
+    return render(request,'posts/single_post.html',context=context)
 
 def likes(request,pk):
     post = get_object_or_404(Products,pk=pk)

@@ -32,3 +32,10 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = Users
         fields = ('username','phone','email','password1','password2')
+
+class ImageProfileForm(forms.ModelForm):
+    photo = forms.CharField(widget=forms.FileInput(attrs={
+    }))
+    class Meta:
+        model = Users
+        fields = ('photo',)
