@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404,HttpResponseRedirect
 from django.urls import reverse
-
+from django.contrib.auth.decorators import login_required
 from .models import *
 from django.contrib import auth
-from .forms import UserLoginForm,UserRegisterForm,ImageProfileForm
+from .forms import UserLoginForm,UserRegisterForm,ImageProfileForm,CommentForm
 # Create your views here.
 def index(request):
     context = {'title':'Главная страница'}
@@ -17,6 +17,7 @@ def about(request):
     context = {'title':'О нас'}
     return render(request,'posts/about.html',context=context)
 
+@login_required
 def profile(request):
     prof = request.user
     if request.method == 'POST':
@@ -56,11 +57,11 @@ def login(request):
         form = UserLoginForm()
     context = {'title':'Авторизация','form':form}
     return render(request,'login.html',context=context)
-
+@login_required
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
-
+@login_required
 def catalog(request):
     brend = Brend.objects.all()
     cat = Category.objects.all()
@@ -71,10 +72,27 @@ def catalog(request):
                'product':product,
                }
     return render(request,'posts/catalog.html',context=context)
-
+@login_required
 def single_post(request,post_id):
-    post = Products.objects.filter(pk=post_id)
-    context = {'title':'Товар','post':post}
+    con = Products.objects.filter(id=post_id)
+    post = Products.objects.get(id=post_id)
+    com = Comment.objects.filter(post=post)
+    context = {'title': 'Товар',
+               'post': post,
+               'comments': com,
+               'con':con}
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            posts = form.save(commit=False)
+            posts.name = request.user
+            posts.post = post
+            posts.save()
+            context['form'] = posts
+            return HttpResponseRedirect(reverse('single_post',args=[post_id]))
+    else:
+        form = CommentForm
+        context['form'] = form
     return render(request,'posts/single_post.html',context=context)
 
 def likes(request,pk):

@@ -6,14 +6,40 @@
 {% endblock style %}
 
 {% block content %}
-{% for k in post %}
+{% for k in con %}
 <div class="product">
     <img src="{{ k.photo.url }}" alt="Product 1" width="50%">
     <h2>{{ k.name }}</h2>
     <p>${{ k.price }} Количество:{{ k.count }}</p>
     <p>Категория:{{ k.cat }} Бренд:{{ k.brend }}</p>
     <p>{{ k.text }}</p>
-    <a href="#"><button class="hero-button">Купить</button></a>
+    <a href="#">
+        <button class="hero-button">Купить</button>
+    </a>
 </div>
 {% endfor %}
+
+<form action="{% url 'single_post' post.id %}" method="post">
+    {% csrf_token %}
+    <h3>Оставить комментарий</h3>
+    <label for="{{ form.text.id_for_label }}">Текст:</label>
+    {{ form.text }}
+    <button type="submit">Отправить</button>
+</form>
+
+{% if comments %}
+<h3>Комментарии</h3>
+{% for comment in comments %}
+<div class="comment">
+    <h3>{{ comment.name}}</h3>
+    <p>{{ comment.text }}</p>
+    <div class="actions">
+        <span>{{ comment.likes.count }} likes</span>
+        <span>{{ comment.dislikes.count }} dislikes</span>
+        <a href="#">like</a>
+        <a href="#">dislike</a>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
 {% endblock content %}

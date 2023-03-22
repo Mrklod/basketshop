@@ -21,8 +21,6 @@ class Products(models.Model):
     count = models.PositiveIntegerField(default=0)
     cat = models.ForeignKey(Category,on_delete=models.CASCADE)
     brend = models.ForeignKey(Brend,on_delete=models.CASCADE,)
-    likes = models.ManyToManyField(Users, related_name='post_likes',blank=True)
-    dislikes = models.ManyToManyField(Users, related_name='post_dislikes',blank=True)
     photo = models.ImageField(upload_to='img')
 
     def __str__(self):
@@ -31,9 +29,10 @@ class Products(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Products, on_delete=models.CASCADE)
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+    name = models.ForeignKey(Users,on_delete=models.PROTECT)
     text = models.TextField()
+    likes = models.ManyToManyField(Users, related_name='post_likes', blank=True)
+    dislikes = models.ManyToManyField(Users, related_name='post_dislikes', blank=True)
     created = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
     def __str__(self):

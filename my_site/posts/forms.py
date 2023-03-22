@@ -39,3 +39,10 @@ class ImageProfileForm(forms.ModelForm):
     class Meta:
         model = Users
         fields = ('photo',)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text',)
+        widgets = {'name': forms.HiddenInput(),
+                   'post': forms.HiddenInput()}

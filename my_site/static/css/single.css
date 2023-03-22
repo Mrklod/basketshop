@@ -1,10 +1,30 @@
 .product {
-  text-align: center; /* выравнивание содержимого по центру */
-  margin: 0 auto; /* отступ сверху и снизу - 0, отступ слева и справа - автоматически (для центрирования) */
-  max-width: 600px; /* максимальная ширина блока */
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .product img {
-  display: block; /* изображение должно быть блочным элементом */
-  margin: 0 auto; /* отступ сверху и снизу - 0, отступ слева и справа - автоматически (для центрирования) */
+  display: block;
+  margin: 0 auto;
+}
+
+.comment {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment h3 {
+  margin: 0;
+}
+
+.comment p {
+  margin: 5px 0 0 0;
+}
+
+.comment .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
