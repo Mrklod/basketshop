@@ -20,15 +20,17 @@ def about(request):
 @login_required
 def profile(request):
     prof = request.user
+    com = Comment.objects.filter(name=prof).count()
     if request.method == 'POST':
-        form = ImageProfileForm(request.POST,request.FILES)
+        form = ImageProfileForm(request.POST,request.FILES,instance=request.user)
         if form.is_valid():
-            # prof.photo = request.FILES
-            # prof.save(comit)
-            return HttpResponseRedirect(reverse('profile'))
+            form.save()
     else:
         form = ImageProfileForm()
-    context = {'title':'Личный профиль','form':form}
+    context = {'title':'Личный профиль',
+               'form':form,
+               'com':com,
+               }
     return render(request,'posts/profile.html',context=context)
 
 
